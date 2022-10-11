@@ -1,3 +1,149 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Barlow", sans-serif;
+  color: white;
+}
+body {
+  background: black;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Barlow", sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
 h1 {
-  color: aqua;
+  margin-top: 30px;
+  font-weight: 900;
+  font-size: 48px;
+  text-align: left;
+  padding-left: 30px;
+}
+h2 {
+  font-weight: 900;
+  text-align: left;
+  padding-left: 30px;
+  font-size: 48px;
+}
+h3 {
+  font-weight: 700;
+  font-size: 18px;
+  color: black;
+  text-align: left;
+  padding-left: 30px;
+}
+h4,
+h5,
+h6 {
+  color: black;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 16px;
+  font-weight: 400;
+}
+p {
+  font-size: 14px;
+}
+
+.mainPanel {
+  background: linear-gradient(#58c8d6, #f7fc7d);
+  width: 70%;
+  max-width: 500px;
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-image: url("bg.svg");
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mainIcon {
+  color: white;
+  font-size: 100px;
+  text-align: right;
+  margin: 50px auto;
+  display: block;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.searchIcon {
+  color: white;
+  font-size: 24px;
+}
+.searchBtn {
+  border: 1px solid white;
+}
+.searchInput {
+  border: 1px solid white;
+}
+
+.nextDays {
+  position: relative;
+  bottom: 30px;
+  margin-top: 80px;
+}
+
+.linkCityL,
+.linkCityC,
+.linkCityR {
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+}
+.linkCityL {
+  text-align: left;
+}
+.linkCityR {
+  text-align: right;
+}
+.linkCityL:hover,
+.linkCityC:hover,
+.linkCityR:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.emptyRow {
+  height: 70px;
+}
+
+.tempUnit {
+  font-weight: 500;
+  color: black;
+}
+
+.currTempUnit {
+  color: black;
+  font-weight: 900;
+}
+.tempUnit:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
