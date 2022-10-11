@@ -1,3 +1,4 @@
+alert("test");
 //
 const apiKey = "50c2acd53349fabd54f52b93c8650d37";
 
