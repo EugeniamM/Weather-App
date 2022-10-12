@@ -36,12 +36,14 @@ if (currHours < 10) {
 if (currMins < 10) {
   currMins = `0${currMins}`;
 }
-
-document.querySelector("#sel-day").innerHTML = `
-${days[currDate.getDay()]}, ${currHours}:${currMins}`;
+//          <span id="sel-date">17 sept</span>
+//          <span id="sel-day">Saturday</span>
+//        <span id="curr-time">, 07:30</span>
 
 document.querySelector("#sel-date").innerHTML =
-  months[currDate.getMonth()] + ", " + currDate.getDate();
+  currDate.getDate() + " " + months[currDate.getMonth()];
+document.querySelector("#sel-day").innerHTML = days[currDate.getDay()];
+document.querySelector("#curr-time").innerHTML = `, ${currHours}:${currMins}`;
 
 /// Show info from weather api response
 function showCityInfo(response) {

@@ -14,12 +14,19 @@
     />
     <link rel="stylesheet" href="src/style.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!--link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
+    /-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
     />
+
     <script
       src="https://kit.fontawesome.com/7bfa2223a6.js"
       crossorigin="anonymous"
@@ -46,11 +53,13 @@
           </button>
         </form>
       </div>
-      <div class="row mt-5">
+      <h1 id="sel-city">Tokio</h1>
+      <div class="row">
         <div class="col">
-          <h1 id="sel-city">Tokio</h1>
-          <h3 id="sel-date">Sept, 17</h3>
-          <h3 id="sel-day">Saturday, 07.30</h3>
+          <h3>
+            <span id="sel-date">17 sept</span>
+            <span id="sel-day">Saturday</span><span id="curr-time"> 07:30</span>
+          </h3>
           <h2>
             <span id="sel-temp">23</span>°<span id="sel-tempUnit">C</span>
           </h2>
@@ -61,14 +70,12 @@
           </h3>
         </div>
         <div class="col">
-          <h1>
-            <img
-              id="main-icon"
-              src="http://openweathermap.org/img/wn/01d@2x.png"
-              alt="Clear"
-            />
-            <!--<i class="fa-solid fa-cloud-sun-rain mainIcon"></i>-->
-          </h1>
+          <img
+            id="main-icon"
+            src="http://openweathermap.org/img/wn/01d@2x.png"
+            alt="Clear"
+          />
+          <!--<i class="fa-solid fa-cloud-sun-rain mainIcon"></i>-->
         </div>
       </div>
       <div class="row emptyRow">
@@ -110,8 +117,8 @@
     ></script>
     <p>
       <a href="https://github.com/EugeniamM/Weather-App.git" target="_blank">
-        Weather app on GitHub
-      </a>
+        Weather app on GitHub</a
+      >
       by Ievgeniia Mukhamet
     </p>
   </body>
