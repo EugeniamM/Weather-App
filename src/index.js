@@ -49,6 +49,15 @@ function showCityInfo(response) {
     response.data.main.temp
   );
   document.querySelector("#sel-city").innerHTML = response.data.name;
+  document
+    .querySelector("#main-icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#main-icon")
+    .setAttribute("alt", `response.data.weather[0].description`);
 }
 function showCityError() {
   alert("This city is not found, try to enter another city");
