@@ -42,7 +42,7 @@ if (currMins < 10) {
 
 document.querySelector("#sel-date").innerHTML =
   currDate.getDate() + " " + months[currDate.getMonth()];
-document.querySelector("#sel-day").innerHTML = days[currDate.getDay()];
+document.querySelector("#sel-day").innerHTML = `(${days[currDate.getDay()]})`;
 document.querySelector("#curr-time").innerHTML = `, ${currHours}:${currMins}`;
 
 /// Show info from weather api response
@@ -63,6 +63,13 @@ function showCityInfo(response) {
   document.querySelector(
     "#sel-humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity} %`;
+  document.querySelector(
+    "#sel-wind"
+  ).innerHTML = `Wind: ${response.data.wind.speed} m/s`;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description.charAt(0).toUpperCase() +
+    response.data.weather[0].description.slice(1);
+  //string.charAt(0).toUpperCase() + string.slice(1)
 }
 function showCityError() {
   alert("This city is not found, try to enter another city");

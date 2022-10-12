@@ -39,7 +39,7 @@ h2,
   font-weight: 900;
   font-size: 48px;
   text-align: left;
-  padding-left: 20px;
+  padding-left: 15px;
   font-family: "Dosis", sans-serif;
 }
 
@@ -181,6 +181,11 @@ a {
 }
 .main-day {
   text-align: left;
-  padding-left: 30px;
+  padding-left: 15px;
   font-weight: 400;
+  vertical-align: middle;
+}
+
+.main-day:first-letter {
+  text-transform: capitalize;
 }
