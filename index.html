@@ -35,9 +35,9 @@
   <body>
     <div class="container mainPanel">
       <div class="row mt-5">
-        <div class="col linkCityL" id="current-city">Current city</div>
-        <div class="col linkCityC" id="london-city">London</div>
-        <div class="col linkCityR" id="odesa-city">Odessa</div>
+        <div class="col linkCityL" id="current-city-link">Current city</div>
+        <div class="col linkCityC" id="london-city-link">London</div>
+        <div class="col linkCityR" id="odesa-city-link">Odessa</div>
       </div>
       <div class="row">
         <form class="d-flex mt-1" role="search" id="search-form">
@@ -55,27 +55,28 @@
       </div>
       <h1 id="sel-city">Tokio</h1>
       <div class="row">
-        <div class="col">
-          <h3>
-            <span id="sel-date">17 sept</span>
-            <span id="sel-day">Saturday</span><span id="curr-time"> 07:30</span>
-          </h3>
-          <h2>
-            <span id="sel-temp">23</span>°<span id="sel-tempUnit">C</span>
-          </h2>
-          <h3>
-            <span id="celsius" class="currTempUnit">°C</span>
-            <span> | </span>
-            <span id="fahrenheit" class="tempUnit">°F</span>
-          </h3>
-        </div>
-        <div class="col">
+        <div class="col-8 align-self-center">
           <img
             id="main-icon"
             src="http://openweathermap.org/img/wn/01d@2x.png"
             alt="Clear"
           />
-          <!--<i class="fa-solid fa-cloud-sun-rain mainIcon"></i>-->
+          <span class="mainTemp">
+            <span id="sel-temp">23</span>°<span id="sel-tempUnit">C</span>
+          </span>
+          <span class="unit">
+            <span id="celsius" class="currTempUnit">°C</span>
+            <span> | </span>
+            <span id="fahrenheit" class="tempUnit">°F</span>
+          </span>
+        </div>
+        <div class="col">
+          <div class="main-day">
+            <span id="sel-date">17 sept</span><br />
+            <span id="sel-day">Saturday</span><span id="curr-time"> 07:30</span
+            ><br />
+            <span id="sel-humidity">Saturday</span>
+          </div>
         </div>
       </div>
       <div class="row emptyRow">
@@ -83,9 +84,11 @@
       </div>
       <div class="row nextDays mt-5">
         <div class="col">
-          <h5 id="nextDate-1">18</h5>
-          <h6 id="nextMonth-1">Sept</h6>
-          <h4 id="nextTemp-1">24°C</h4>
+          <div class="next-days">
+            <span id="nextDate-1">18</span>
+            <span id="nextMonth-1">Sept</span>
+            <span id="nextTemp-1">24°C</span>
+          </div>
         </div>
         <div class="col">
           <h5 id="nextDate-2">19</h5>
@@ -119,7 +122,7 @@
       <a href="https://github.com/EugeniamM/Weather-App.git" target="_blank">
         Weather app on GitHub</a
       >
-      by Ievgeniia Mukhamet
+      <span class="">by Ievgeniia Mukhamet</span>
     </p>
   </body>
 </html>

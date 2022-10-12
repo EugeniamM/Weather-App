@@ -3,11 +3,10 @@ html {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  color: white;
 }
 
 body {
-  background: black;
+  background: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
   background-attachment: fixed;
@@ -19,6 +18,8 @@ h3,
 h4,
 h5,
 h6,
+.mainTemp,
+.next-days,
 p {
   font-family: "Open Sans", sans-serif;
   color: white;
@@ -27,34 +28,34 @@ p {
   padding: 0;
   font-weight: 700;
 }
+
+a {
+  color: aqua;
+}
+
 h1,
-h2 {
+h2,
+.mainTemp {
   font-weight: 900;
   font-size: 48px;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 20px;
   font-family: "Dosis", sans-serif;
+}
+
+h3,
+h5,
+h6,
+p {
+  color: black;
 }
 
 h1 {
   margin-top: 30px;
 }
 
-h3,
-h4,
-h5 {
-}
-
 h3 {
-  font-size: 18px;
-  text-align: left;
-  padding-left: 30px;
-}
-
-h3,
-h5,
-h6 {
-  color: black;
+  font-size: 14px;
 }
 
 h4 {
@@ -62,15 +63,27 @@ h4 {
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 h6 {
   font-size: 16px;
   font-weight: 400;
 }
+
 p {
   font-size: 14px;
+  font-weight: 400;
+}
+a {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.mainTemp {
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
 }
 
 .mainPanel {
@@ -85,6 +98,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 8px;
 }
 
 .mainIcon {
@@ -101,9 +115,7 @@ p {
   color: white;
   font-size: 24px;
 }
-.searchBtn {
-  border: 1px solid white;
-}
+.searchBtn,
 .searchInput {
   border: 1px solid white;
 }
@@ -111,7 +123,7 @@ p {
 .nextDays {
   position: relative;
   bottom: 30px;
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .linkCityL,
@@ -153,7 +165,22 @@ p {
   cursor: pointer;
 }
 
-img {
+.units {
+  vertical-align: middle;
+}
+/*img {
   display: block;
   margin: 0 auto;
+}*/
+.main-day,
+.next-days {
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+}
+.main-day {
+  text-align: left;
+  padding-left: 30px;
+  font-weight: 400;
 }

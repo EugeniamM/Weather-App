@@ -60,6 +60,9 @@ function showCityInfo(response) {
   document
     .querySelector("#main-icon")
     .setAttribute("alt", `response.data.weather[0].description`);
+  document.querySelector(
+    "#sel-humidity"
+  ).innerHTML = `Humidity: ${response.data.main.humidity} %`;
 }
 function showCityError() {
   alert("This city is not found, try to enter another city");
@@ -113,15 +116,15 @@ function setCurrenCityData() {
   navigator.geolocation.getCurrentPosition(getCurrentCityInfo);
 }
 
-let currCity = document.querySelector("#current-city");
+let currCity = document.querySelector("#current-city-link");
 currCity.addEventListener("click", setCurrenCityData);
 //currCity.addEventListener("click", console.log("curr city"));
 
-let londonCity = document.querySelector("#london-city");
+let londonCity = document.querySelector("#london-city-link");
 const londonFunc = getCityInfo.bind(this, "London");
 londonCity.addEventListener("click", londonFunc);
 
-let odesaCity = document.querySelector("#odesa-city");
+let odesaCity = document.querySelector("#odesa-city-link");
 //odesaCity.addEventListener("click", getCityInfo(odesaCity.innerHTML));
 const odesaFunc = getCityInfo.bind(this, "Odesa");
 odesaCity.addEventListener("click", odesaFunc);
