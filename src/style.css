@@ -185,7 +185,3 @@ a {
   font-weight: 400;
   vertical-align: middle;
 }
-
-.main-day:first-letter {
-  text-transform: capitalize;
-}
