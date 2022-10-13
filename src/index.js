@@ -1,5 +1,9 @@
 //
 const apiKey = "50c2acd53349fabd54f52b93c8650d37";
+//
+
+let currentMetric = "C";
+console.log(currentMetric);
 
 //current date and time
 const days = [
@@ -45,6 +49,7 @@ function getDateTime(dataInfo) {
 
 /// Show info from weather api response
 function showCityInfo(response) {
+  console.log(response.data);
   const localDateTime = new Date();
   const selDateTime = new Date(response.data.dt * 1000);
 
@@ -120,14 +125,14 @@ function getSelectedCity(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", getSelectedCity);
-
+getCurrentCityInfo;
 ///Info for current city
 function getCurrentCityInfo(position) {
   let positionLat = position.coords.latitude;
   let positionLong = position.coords.longitude;
   let unitName = "metric";
   let currTempUnit = document.querySelector("#sel-tempUnit");
-  if (currTempUnit.innerHTML === "F") {
+  if (currentMetric === "F") {
     unitName = "imperial";
   }
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${positionLat}&lon=${positionLong}&appid=${apiKey}&units=${unitName}`;
@@ -152,43 +157,34 @@ const odesaFunc = getCityInfo.bind(this, "Odesa");
 odesaCity.addEventListener("click", odesaFunc);*/
 
 //Change unit
-let celsius = document.querySelector("#celsius");
-let fahrenheit = document.querySelector("#fahrenheit");
 
 function setCurrentF(event) {
   event.preventDefault();
-  let celsius = document.querySelector("#celsius");
-  let fahrenheit = document.querySelector("#fahrenheit");
-  fahrenheit.className = "currTempUnit";
-  celsius.className = "tempUnit";
-
-  let currTempUnit = document.querySelector("#sel-tempUnit");
   let currentTemp = document.querySelector("#sel-temp");
 
-  if (currTempUnit.innerHTML !== "F") {
-    currTempUnit.innerHTML = "F";
+  if (currentMetric !== "F") {
+    document.querySelector("#sel-tempUnit").innerHTML = "F";
+    currentMetric = "F";
     currentTemp.innerHTML = Math.round((currentTemp.innerHTML * 9) / 5 + 32);
+    document.querySelector("#celsius").className = "tempUnit";
+    document.querySelector("#fahrenheit").className = "currTempUnit";
   }
 }
-fahrenheit.addEventListener("click", setCurrentF);
 
 function setCurrentC(event) {
   event.preventDefault();
-  let celsius = document.querySelector("#celsius");
-  let fahrenheit = document.querySelector("#fahrenheit");
-  fahrenheit.className = "tempUnit";
-  celsius.className = "currTempUnit";
-
-  let currTempUnit = document.querySelector("#sel-tempUnit");
   let currentTemp = document.querySelector("#sel-temp");
 
-  if (currTempUnit.innerHTML !== "C") {
-    currTempUnit.innerHTML = "C";
+  if (currentMetric !== "C") {
+    document.querySelector("#sel-tempUnit").innerHTML = "C";
+    currentMetric = "C";
     currentTemp.innerHTML = Math.round(((currentTemp.innerHTML - 32) * 5) / 9);
+    document.querySelector("#celsius").className = "currTempUnit";
+    document.querySelector("#fahrenheit").className = "tempUnit";
   }
 }
-
-celsius.addEventListener("click", setCurrentC);
+document.querySelector("#fahrenheit").addEventListener("click", setCurrentF);
+document.querySelector("#celsius").addEventListener("click", setCurrentC);
 ///end
 
 //setCurrenCityData();
