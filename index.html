@@ -36,7 +36,7 @@
     <div class="container mainPanel">
       <div class="row mt-5">
         <div class="col linkCityL" id="current-city-link">Current city</div>
-        <div class="col-8 linkCityR" id="current-data-time">London</div>
+        <div class="col-8 linkCityR" id="current-data-time"></div>
         <!--div class="col-10 linkCityC" id="london-city-link">London</div>
         <div class="col linkCityR" id="odesa-city-link">Odessa</div-->
       </div>
@@ -54,10 +54,9 @@
           </button>
         </form>
       </div>
-      <h1 id="sel-city">Tokio</h1>
+      <h1 id="sel-city">Odesa</h1>
       <div class="main-day">
-        <span id="sel-date">17 sept</span>
-        <span id="sel-day"> (Saturday)</span><span id="curr-time"> 07:30</span>
+        <span id="sel-date-time">17 October (Saturday) 07:30</span>
       </div>
       <div class="row">
         <div class="col-8 align-self-center">
@@ -77,10 +76,17 @@
         </div>
         <div class="col align-self-center">
           <div class="main-day">
-            <span id="sel-humidity">Humidity: 10%</span>
-            <span id="sel-wind">Wind: 3 km/h</span>
+            <span id="sel-humidity">Humidity: 10%</span><br />
+            <span id="sel-wind">Wind: 3 km/h</span><br />
             <span id="description">Clear sky</span>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <span class="main-day"
+            >Feels like: <span id="feels-like">23</span>°C</span
+          >
         </div>
       </div>
       <div class="row emptyRow">

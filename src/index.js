@@ -25,10 +25,11 @@ const months = [
   "November",
   "December",
 ];
-function setLocalDate() {
-  let currDate = new Date();
-  let currHours = currDate.getHours();
-  let currMins = currDate.getMinutes();
+
+// current date and time from Data();
+function getDateTime(dataInfo) {
+  let currHours = dataInfo.getHours();
+  let currMins = dataInfo.getMinutes();
 
   if (currHours < 10) {
     currHours = `0${currHours}`;
@@ -37,20 +38,24 @@ function setLocalDate() {
     currMins = `0${currMins}`;
   }
 
-  document.querySelector(
-    "#current-data-time"
-  ).innerHTML = `${currDate.getDate()} ${months[currDate.getMonth()]} (${
-    days[currDate.getDay()]
+  return `${dataInfo.getDate()} ${months[dataInfo.getMonth()]} (${
+    days[dataInfo.getDay()]
   }), ${currHours}:${currMins}`;
 }
 
 /// Show info from weather api response
 function showCityInfo(response) {
-  setLocalDate();
-  // document.querySelector("#current-data-time").innerHTML = new Date(
-  //   response.data.dt * 1000
-  // ).toString();
+  const localDateTime = new Date();
+  const selDateTime = new Date(response.data.dt * 1000);
 
+  document.querySelector("#current-data-time").innerHTML =
+    getDateTime(localDateTime);
+
+  document.querySelector("#sel-date-time").innerHTML =
+    "Update data: " + getDateTime(selDateTime);
+
+  // console.log(localDateTime.getTimezoneOffset());
+  // console.log(selDateTime.getTimezoneOffset());
   let date1 = new Date(response.data.dt * 1000);
 
   document.querySelector("#sel-temp").innerHTML = Math.round(
@@ -76,7 +81,10 @@ function showCityInfo(response) {
     response.data.weather[0].description.charAt(0).toUpperCase() +
     response.data.weather[0].description.slice(1);
   //string.charAt(0).toUpperCase() + string.slice(1)
-  console.log(response.data);
+
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
 }
 function showCityError() {
   alert("This city is not found, try to enter another city");
