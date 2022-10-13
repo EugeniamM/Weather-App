@@ -2,8 +2,7 @@
 const apiKey = "50c2acd53349fabd54f52b93c8650d37";
 
 //current date and time
-let currDate = new Date();
-let days = [
+const days = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -12,7 +11,7 @@ let days = [
   "Friday",
   "Saturday",
 ];
-let months = [
+const months = [
   "January",
   "February",
   "March",
@@ -26,27 +25,34 @@ let months = [
   "November",
   "December",
 ];
+function setLocalDate() {
+  let currDate = new Date();
+  let currHours = currDate.getHours();
+  let currMins = currDate.getMinutes();
 
-let currHours = currDate.getHours();
-let currMins = currDate.getMinutes();
+  if (currHours < 10) {
+    currHours = `0${currHours}`;
+  }
+  if (currMins < 10) {
+    currMins = `0${currMins}`;
+  }
 
-if (currHours < 10) {
-  currHours = `0${currHours}`;
+  document.querySelector(
+    "#current-data-time"
+  ).innerHTML = `${currDate.getDate()} ${months[currDate.getMonth()]} (${
+    days[currDate.getDay()]
+  }), ${currHours}:${currMins}`;
 }
-if (currMins < 10) {
-  currMins = `0${currMins}`;
-}
-//          <span id="sel-date">17 sept</span>
-//          <span id="sel-day">Saturday</span>
-//        <span id="curr-time">, 07:30</span>
-
-document.querySelector("#sel-date").innerHTML =
-  currDate.getDate() + " " + months[currDate.getMonth()];
-document.querySelector("#sel-day").innerHTML = `(${days[currDate.getDay()]})`;
-document.querySelector("#curr-time").innerHTML = `, ${currHours}:${currMins}`;
 
 /// Show info from weather api response
 function showCityInfo(response) {
+  setLocalDate();
+  // document.querySelector("#current-data-time").innerHTML = new Date(
+  //   response.data.dt * 1000
+  // ).toString();
+
+  let date1 = new Date(response.data.dt * 1000);
+
   document.querySelector("#sel-temp").innerHTML = Math.round(
     response.data.main.temp
   );
@@ -70,6 +76,7 @@ function showCityInfo(response) {
     response.data.weather[0].description.charAt(0).toUpperCase() +
     response.data.weather[0].description.slice(1);
   //string.charAt(0).toUpperCase() + string.slice(1)
+  console.log(response.data);
 }
 function showCityError() {
   alert("This city is not found, try to enter another city");
@@ -77,7 +84,7 @@ function showCityError() {
 
 /// Call weather api for selected city name
 function getCityInfo(city) {
-  console.log(city);
+  //console.log(city);
   let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   let unitName = "metric";
   ///Celsius or Fahrenheit?
@@ -125,8 +132,8 @@ function setCurrenCityData() {
 
 let currCity = document.querySelector("#current-city-link");
 currCity.addEventListener("click", setCurrenCityData);
-//currCity.addEventListener("click", console.log("curr city"));
 
+/*
 let londonCity = document.querySelector("#london-city-link");
 const londonFunc = getCityInfo.bind(this, "London");
 londonCity.addEventListener("click", londonFunc);
@@ -134,7 +141,7 @@ londonCity.addEventListener("click", londonFunc);
 let odesaCity = document.querySelector("#odesa-city-link");
 //odesaCity.addEventListener("click", getCityInfo(odesaCity.innerHTML));
 const odesaFunc = getCityInfo.bind(this, "Odesa");
-odesaCity.addEventListener("click", odesaFunc);
+odesaCity.addEventListener("click", odesaFunc);*/
 
 //Change unit
 let celsius = document.querySelector("#celsius");
@@ -176,4 +183,6 @@ function setCurrentC(event) {
 celsius.addEventListener("click", setCurrentC);
 ///end
 
-setCurrenCityData();
+//setCurrenCityData();
+
+getCityInfo("Odesa");
