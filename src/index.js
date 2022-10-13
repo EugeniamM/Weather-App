@@ -1,20 +1,10 @@
 //
 const apiKey = "50c2acd53349fabd54f52b93c8650d37";
-//
 
 let currentMetric = "C";
-console.log(currentMetric);
 
 //current date and time
-const days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = [
   "January",
   "February",
@@ -53,19 +43,15 @@ function showCityInfo(response) {
   const localDateTime = new Date();
   const selDateTime = new Date(response.data.dt * 1000);
 
-  document.querySelector("#current-data-time").innerHTML =
-    getDateTime(localDateTime);
+  document.querySelector("#current-data-time").innerHTML = getDateTime(localDateTime);
 
-  document.querySelector("#sel-date-time").innerHTML =
-    "Update data: " + getDateTime(selDateTime);
+  document.querySelector("#sel-date-time").innerHTML = "Update data: " + getDateTime(selDateTime);
 
   // console.log(localDateTime.getTimezoneOffset());
   // console.log(selDateTime.getTimezoneOffset());
   let date1 = new Date(response.data.dt * 1000);
 
-  document.querySelector("#sel-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#sel-temp").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("#sel-city").innerHTML = response.data.name;
   document
     .querySelector("#main-icon")
@@ -73,23 +59,15 @@ function showCityInfo(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
-  document
-    .querySelector("#main-icon")
-    .setAttribute("alt", `response.data.weather[0].description`);
-  document.querySelector(
-    "#sel-humidity"
-  ).innerHTML = `Humidity: ${response.data.main.humidity} %`;
-  document.querySelector(
-    "#sel-wind"
-  ).innerHTML = `Wind: ${response.data.wind.speed} m/s`;
+  document.querySelector("#main-icon").setAttribute("alt", `response.data.weather[0].description`);
+  document.querySelector("#sel-humidity").innerHTML = `Humidity: ${response.data.main.humidity} %`;
+  document.querySelector("#sel-wind").innerHTML = `Wind: ${response.data.wind.speed} m/s`;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description.charAt(0).toUpperCase() +
     response.data.weather[0].description.slice(1);
   //string.charAt(0).toUpperCase() + string.slice(1)
 
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
 }
 function showCityError() {
   alert("This city is not found, try to enter another city");
@@ -160,12 +138,18 @@ odesaCity.addEventListener("click", odesaFunc);*/
 
 function setCurrentF(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#sel-temp");
 
   if (currentMetric !== "F") {
     document.querySelector("#sel-tempUnit").innerHTML = "F";
+    document.querySelector("#feels-like-unit").innerHTML = "F";
     currentMetric = "F";
+
+    let currentTemp = document.querySelector("#sel-temp");
     currentTemp.innerHTML = Math.round((currentTemp.innerHTML * 9) / 5 + 32);
+
+    let feelsLikeTemp = document.querySelector("#feels-like");
+    feelsLikeTemp.innerHTML = Math.round((feelsLikeTemp.innerHTML * 9) / 5 + 32);
+
     document.querySelector("#celsius").className = "tempUnit";
     document.querySelector("#fahrenheit").className = "currTempUnit";
   }
@@ -173,12 +157,18 @@ function setCurrentF(event) {
 
 function setCurrentC(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#sel-temp");
 
   if (currentMetric !== "C") {
     document.querySelector("#sel-tempUnit").innerHTML = "C";
+    document.querySelector("#feels-like-unit").innerHTML = "C";
     currentMetric = "C";
+
+    let currentTemp = document.querySelector("#sel-temp");
     currentTemp.innerHTML = Math.round(((currentTemp.innerHTML - 32) * 5) / 9);
+
+    let feelsLikeTemp = document.querySelector("#feels-like");
+    feelsLikeTemp.innerHTML = Math.round(((feelsLikeTemp.innerHTML - 32) * 5) / 9);
+
     document.querySelector("#celsius").className = "currTempUnit";
     document.querySelector("#fahrenheit").className = "tempUnit";
   }
@@ -186,7 +176,5 @@ function setCurrentC(event) {
 document.querySelector("#fahrenheit").addEventListener("click", setCurrentF);
 document.querySelector("#celsius").addEventListener("click", setCurrentC);
 ///end
-
-//setCurrenCityData();
 
 getCityInfo("Odesa");

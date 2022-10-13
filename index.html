@@ -27,18 +27,15 @@
       rel="stylesheet"
     />
 
-    <script
-      src="https://kit.fontawesome.com/7bfa2223a6.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/7bfa2223a6.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="container mainPanel">
       <div class="row mt-5">
-        <div class="col linkCityL" id="current-city-link">Current city</div>
-        <div class="col-8 linkCityR" id="current-data-time"></div>
+        <div class="col current-city" id="current-city-link">Current city</div>
+        <div class="col-8 current-date-time" id="current-data-time"></div>
         <!--div class="col-10 linkCityC" id="london-city-link">London</div>
-        <div class="col linkCityR" id="odesa-city-link">Odessa</div-->
+        <div class="col current-date-time" id="odesa-city-link">Odessa</div-->
       </div>
       <div class="row">
         <form class="d-flex mt-1" role="search" id="search-form">
@@ -54,71 +51,68 @@
           </button>
         </form>
       </div>
-      <h1 id="sel-city">Odesa</h1>
-      <div class="main-day">
-        <span id="sel-date-time">17 October (Saturday) 07:30</span>
+      <h1 class="city-name" id="sel-city">Odesa</h1>
+      <div class="main-info">
+        <span id="sel-date-time">17 October (Saturday) 07:30</span><br />
+        <span>
+          Feels like: <span id="feels-like">23</span>°<span id="feels-like-unit">C</span>
+        </span>
       </div>
+
       <div class="row">
         <div class="col-8 align-self-center">
-          <img
-            id="main-icon"
-            src="http://openweathermap.org/img/wn/01d@2x.png"
-            alt="Clear"
-          />
-          <span class="mainTemp">
+          <img id="main-icon" src="http://openweathermap.org/img/wn/01d@2x.png" alt="Clear" />
+          <span class="main-temp">
             <span id="sel-temp">23</span>°<span id="sel-tempUnit">C</span>
           </span>
-          <span class="unit">
+          <span class="units">
             <span id="celsius" class="currTempUnit">°C</span>
             <span> | </span>
             <span id="fahrenheit" class="tempUnit">°F</span>
           </span>
         </div>
         <div class="col align-self-center">
-          <div class="main-day">
+          <div class="main-info">
             <span id="sel-humidity">Humidity: 10%</span><br />
             <span id="sel-wind">Wind: 3 km/h</span><br />
             <span id="description">Clear sky</span>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div>
-          <span class="main-day"
-            >Feels like: <span id="feels-like">23</span>°C</span
-          >
-        </div>
-      </div>
+      <div class="row"></div>
       <div class="row emptyRow">
         <div class="col"></div>
       </div>
-      <div class="row nextDays mt-5">
-        <div class="col">
-          <div class="next-days">
-            <span id="nextDate-1">18</span>
-            <span id="nextMonth-1">Sept</span>
-            <span id="nextTemp-1">24°C</span>
+      <div class="row">
+        <div class="col next-days">
+          <div>
+            <span id="nextDate-1">18 Sept</span><br />
+            <span class="next-temp" id="nextTemp-1">24°C</span>
           </div>
         </div>
-        <div class="col">
-          <h5 id="nextDate-2">19</h5>
-          <h6 id="nextMonth-2">Sept</h6>
-          <h4 id="nextTemp-2">24°C</h4>
+        <div class="col next-days">
+          <div>
+            <span id="nextDate-1">18 Sept</span><br />
+            <span class="next-temp" id="nextTemp-1">24°C</span>
+          </div>
         </div>
-        <div class="col">
-          <h5 id="nextDate-3">20</h5>
-          <h6 id="nextMonth-3">Sept</h6>
-          <h4 id="nextTemp-3">21°C</h4>
+        <div class="col next-days">
+          <div>
+            <span id="nextDate-1">18 Sept</span><br />
+            <span class="next-temp" id="nextTemp-1">24°C</span>
+          </div>
         </div>
-        <div class="col">
-          <h5 id="nextDate-4">21</h5>
-          <h6 id="nextMonth-4">Sept</h6>
-          <h4 id="nextTemp-4">20°C</h4>
+        <div class="col next-days">
+          <div>
+            <span id="nextDate-1">18 Sept</span><br />
+            <span class="next-temp" id="nextTemp-1">24°C</span>
+          </div>
         </div>
-        <div class="col">
-          <h5 id="nextDate-5">22</h5>
-          <h6 id="nextMonth-5">Sept</h6>
-          <h4 id="nextTemp-5">22°C</h4>
+        <div class="col next-days">
+          <div>
+            <span id="nextDate-1">18 Sept</span><br />
+            <span class="next-temp" id="nextTemp-1">24°C</span>
+          </div>
         </div>
       </div>
     </div>
@@ -128,11 +122,11 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
-    <p>
+    <div class="copiright">
       <a href="https://github.com/EugeniamM/Weather-App.git" target="_blank">
         Weather app on GitHub</a
       >
       <span class="">by Ievgeniia Mukhamet</span>
-    </p>
+    </div>
   </body>
 </html>

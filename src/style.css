@@ -1,99 +1,37 @@
-html {
+/*html {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+}*/
 
 body {
   background: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
+
   background-attachment: fixed;
   font-family: "Open Sans", sans-serif;
-}
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.mainTemp,
-.next-days,
-p {
-  color: white;
-  text-align: center;
   margin: 0;
   padding: 0;
-  font-weight: 700;
-  font-size: 13px;
 }
 
 a {
-  color: aqua;
-}
-
-h1,
-h2,
-.mainTemp {
-  font-weight: 900;
-  font-size: 48px;
-  text-align: left;
-  padding-left: 15px;
-  font-family: "Dosis", sans-serif;
-}
-
-h3,
-h5,
-h6,
-p {
-  color: black;
-}
-
-h1 {
-  margin-top: 30px;
-}
-
-h3 {
-  font-size: 13px;
-}
-
-h4 {
-  font-size: 24px;
-}
-
-h5 {
-  font-size: 13px;
-}
-
-h6 {
-  font-size: 16px;
-  font-weight: 400;
-}
-
-p {
-  font-size: 13px;
-  font-weight: 400;
-}
-a {
+  text-align: center;
   font-size: 13px;
   font-weight: 900;
   color: #01bfc7;
-}
-
-.mainTemp {
-  padding: 0;
-  margin: 0;
-  vertical-align: middle;
 }
 
 .mainPanel {
   background: linear-gradient(#58c8d6, #f7fc7d);
   width: 70%;
   max-width: 500px;
-  margin: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  margin: 0 auto;
+  padding: 0 30px;
   background-image: url("bg.svg");
   background-color: #cccccc;
   background-position: center;
@@ -102,50 +40,80 @@ a {
   border-radius: 8px;
 }
 
-.mainIcon {
+.city-name,
+.main-temp {
+  vertical-align: middle;
+  text-align: left;
+
+  font-family: "Dosis", sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+
   color: white;
-  font-size: 100px;
-  text-align: right;
-  margin: 50px auto;
-  display: block;
-  padding-right: 30px;
-  padding-bottom: 30px;
+}
+
+.city-name {
+  margin: 24px 0 0 0;
+  padding: 0 0 0 13px;
+}
+
+.main-info,
+.next-days {
+  color: black;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  font-family: "Open Sans", sans-serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+.next-days {
+  text-align: center;
+  position: relative;
+  bottom: 10px;
+  margin-top: 30px;
+  padding: 10px;
+}
+.next-temp {
+  font-family: "Dosis", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 30px;
+  color: white;
+}
+
+.main-info {
+  text-align: left;
+  padding: 0 0 0 15px;
+  vertical-align: middle;
 }
 
 .searchIcon {
   color: white;
   font-size: 24px;
 }
+
 .searchBtn,
 .searchInput {
   border: 1px solid white;
 }
 
-.nextDays {
-  position: relative;
-  bottom: 30px;
-  margin-top: 30px;
-}
-
-.linkCityL,
-/*.linkCityC,*/
-.linkCityR {
+.current-city,
+.current-date-time {
   margin-top: 30px;
   text-align: left;
   color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
 }
-/*.linkCityC {
-  text-align: center;
-}*/
-.linkCityR {
+
+.current-date-time {
   text-align: right;
   color: rgb(0, 0, 0);
 }
-.linkCityL:hover
-/*,.linkCityC:hover,
-.linkCityR:hover*/ {
+.current-city:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -163,6 +131,7 @@ a {
   color: black;
   font-weight: 900;
 }
+
 .tempUnit:hover {
   text-decoration: underline;
   cursor: pointer;
@@ -170,23 +139,10 @@ a {
 
 .units {
   vertical-align: middle;
-}
-/*img {
-  display: block;
-  margin: 0 auto;
-}*/
-.main-day,
-.next-days {
-  color: rgb(0, 0, 0);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 18px;
-  font-family: "Open Sans", sans-serif;
-}
-.main-day {
-  text-align: left;
-  padding-left: 15px;
-  vertical-align: middle;
+  position: relative;
+  bottom: 10px;
 }
 
-/*color orange #ec6e4c*/
+.copiright {
+  text-align: center;
+}
