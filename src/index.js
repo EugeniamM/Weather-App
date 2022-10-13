@@ -1,5 +1,7 @@
 //
 const apiKey = "50c2acd53349fabd54f52b93c8650d37";
+const apiKey2 = "6782253072f7d90462731a624097fc54";
+const cnt = 5;
 
 let currentMetric = "C";
 
@@ -37,18 +39,42 @@ function getDateTime(dataInfo) {
   }), ${currHours}:${currMins}`;
 }
 
+function showForecastInfo(response) {
+  console.log(response.data);
+  let currDate = new Date(response.data.current.dt * 1000);
+  console.log(currDate);
+  for (i = 1; i < 6; i++) {
+    currDate = new Date(response.data.daily[i].dt * 1000);
+    document.querySelector(`#nextDate-${i}`).innerHTML = `${currDate.getDate()} ${
+      months[currDate.getMonth()]
+    }`;
+    console.log(currDate);
+
+    document
+      .querySelector(`#day-${i}-icon`)
+      .setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.daily[i].weather[0].icon}@2x.png`
+      );
+
+    document.querySelector(`#nextTemp-${i}`).innerHTML = Math.round(
+      response.data.daily[i].temp.day
+    );
+  }
+}
+function showForecastError() {
+  alert("Forecast is not found, try to enter another city");
+}
+
 /// Show info from weather api response
 function showCityInfo(response) {
-  console.log(response.data);
+  //console.log(response.data);
   const localDateTime = new Date();
   const selDateTime = new Date(response.data.dt * 1000);
 
   document.querySelector("#current-data-time").innerHTML = getDateTime(localDateTime);
-
-  document.querySelector("#sel-date-time").innerHTML = "Update data: " + getDateTime(selDateTime);
-
-  // console.log(localDateTime.getTimezoneOffset());
-  // console.log(selDateTime.getTimezoneOffset());
+  document.querySelector("#sel-date-time").innerHTML =
+    "<b>Update data:</b> " + getDateTime(selDateTime);
   let date1 = new Date(response.data.dt * 1000);
 
   document.querySelector("#sel-temp").innerHTML = Math.round(response.data.main.temp);
@@ -60,24 +86,32 @@ function showCityInfo(response) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
   document.querySelector("#main-icon").setAttribute("alt", `response.data.weather[0].description`);
-  document.querySelector("#sel-humidity").innerHTML = `Humidity: ${response.data.main.humidity} %`;
-  document.querySelector("#sel-wind").innerHTML = `Wind: ${response.data.wind.speed} m/s`;
+  document.querySelector(
+    "#sel-humidity"
+  ).innerHTML = `<b>Humidity:</b> ${response.data.main.humidity} %`;
+  document.querySelector("#sel-wind").innerHTML = `<b>Wind:</b> ${response.data.wind.speed} m/s`;
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description.charAt(0).toUpperCase() +
     response.data.weather[0].description.slice(1);
-  //string.charAt(0).toUpperCase() + string.slice(1)
-
   document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
+
+  let unitName = "metric";
+  if (currentMetric === "F") {
+    unitName = "imperial";
+  }
+
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&cnt=${cnt}&appid=${apiKey2}&units=${unitName}`;
+  axios.get(apiUrl).then(showForecastInfo).catch(showForecastError);
 }
+
 function showCityError() {
   alert("This city is not found, try to enter another city");
 }
 
 /// Call weather api for selected city name
-function getCityInfo(city) {
-  //console.log(city);
-  let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
+function getInfoByName(city) {
   let unitName = "metric";
+
   ///Celsius or Fahrenheit?
   let currTempUnit = document.querySelector("#sel-tempUnit");
   if (currTempUnit.innerHTML === "F") {
@@ -88,41 +122,42 @@ function getCityInfo(city) {
     alert("Please enter a city name.");
   } else {
     axios
-      .get(`${apiUrl}${city}&appid=${apiKey}&units=${unitName}`)
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unitName}`
+      )
       .then(showCityInfo)
       .catch(showCityError);
   }
 }
 
 ///get info for the entered city
-function getSelectedCity(event) {
+function searchCityInfoHandler(event) {
   event.preventDefault();
   let currentCity = document.querySelector("#inputCity");
-  getCityInfo(currentCity.value.trim());
+  getInfoByName(currentCity.value.trim());
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", getSelectedCity);
-getCurrentCityInfo;
+searchForm.addEventListener("submit", searchCityInfoHandler);
+//getCurrentCityInfo;
+
 ///Info for current city
-function getCurrentCityInfo(position) {
-  let positionLat = position.coords.latitude;
-  let positionLong = position.coords.longitude;
+function getInfoByPosition(position) {
   let unitName = "metric";
-  let currTempUnit = document.querySelector("#sel-tempUnit");
   if (currentMetric === "F") {
     unitName = "imperial";
   }
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${positionLat}&lon=${positionLong}&appid=${apiKey}&units=${unitName}`;
-  axios.get(apiUrl).then(showCityInfo);
+
+  let apiUrl1 = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${unitName}`;
+  axios.get(apiUrl1).then(showCityInfo).catch(showCityError);
 }
 
-function setCurrenCityData() {
-  navigator.geolocation.getCurrentPosition(getCurrentCityInfo);
+function currentCityHandler() {
+  navigator.geolocation.getCurrentPosition(getInfoByPosition);
 }
 
 let currCity = document.querySelector("#current-city-link");
-currCity.addEventListener("click", setCurrenCityData);
+currCity.addEventListener("click", currentCityHandler);
 
 /*
 let londonCity = document.querySelector("#london-city-link");
@@ -177,4 +212,4 @@ document.querySelector("#fahrenheit").addEventListener("click", setCurrentF);
 document.querySelector("#celsius").addEventListener("click", setCurrentC);
 ///end
 
-getCityInfo("Odesa");
+getInfoByName("Odesa");

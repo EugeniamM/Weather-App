@@ -34,8 +34,6 @@
       <div class="row mt-5">
         <div class="col current-city" id="current-city-link">Current city</div>
         <div class="col-8 current-date-time" id="current-data-time"></div>
-        <!--div class="col-10 linkCityC" id="london-city-link">London</div>
-        <div class="col current-date-time" id="odesa-city-link">Odessa</div-->
       </div>
       <div class="row">
         <form class="d-flex mt-1" role="search" id="search-form">
@@ -46,7 +44,7 @@
             aria-label="newCity"
             id="inputCity"
           />
-          <button class="btn btn-outline-success searchBtn" type="submit">
+          <button class="btn btn-outline-warning searchBtn" type="submit">
             <i class="fa-solid fa-magnifying-glass searchIcon"></i>
           </button>
         </form>
@@ -73,8 +71,8 @@
         </div>
         <div class="col align-self-center">
           <div class="main-info">
-            <span id="sel-humidity">Humidity: 10%</span><br />
-            <span id="sel-wind">Wind: 3 km/h</span><br />
+            <span id="sel-humidity"><b></b>Humidity</b>: 10%</span><br />
+            <span id="sel-wind"><b>Wind:</b> 3 km/h</span><br />
             <span id="description">Clear sky</span>
           </div>
         </div>
@@ -87,31 +85,66 @@
         <div class="col next-days">
           <div>
             <span id="nextDate-1">18 Sept</span><br />
-            <span class="next-temp" id="nextTemp-1">24°C</span>
+            <img
+              id="day-1-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              width="50px"
+              class="next-day-icon"
+            /><br />
+            <span class="next-temp"><span id="nextTemp-1">24</span>°C</span>
           </div>
         </div>
         <div class="col next-days">
           <div>
-            <span id="nextDate-1">18 Sept</span><br />
-            <span class="next-temp" id="nextTemp-1">24°C</span>
+            <span id="nextDate-2">18 Sept</span><br />
+            <img
+              id="day-2-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              width="50px"
+              class="next-day-icon"
+            /><br />
+            <span class="next-temp"><span id="nextTemp-2">24</span>°C</span>
           </div>
         </div>
         <div class="col next-days">
           <div>
-            <span id="nextDate-1">18 Sept</span><br />
-            <span class="next-temp" id="nextTemp-1">24°C</span>
+            <span id="nextDate-3">18 Sept</span><br />
+            <img
+              id="day-3-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              width="50px"
+              class="next-day-icon"
+            /><br />
+            <span class="next-temp"><span id="nextTemp-3">24</span>°C</span>
           </div>
         </div>
         <div class="col next-days">
           <div>
-            <span id="nextDate-1">18 Sept</span><br />
-            <span class="next-temp" id="nextTemp-1">24°C</span>
+            <span id="nextDate-4">18 Sept</span><br />
+            <img
+              id="day-4-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              width="50px"
+              class="next-day-icon"
+            /><br />
+            <span class="next-temp"><span id="nextTemp-4">24</span>°C</span>
           </div>
         </div>
         <div class="col next-days">
           <div>
-            <span id="nextDate-1">18 Sept</span><br />
-            <span class="next-temp" id="nextTemp-1">24°C</span>
+            <span id="nextDate-5">18 Sept</span><br />
+            <img
+              id="day-5-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              width="50px"
+              class="next-day-icon"
+            /><br />
+            <span class="next-temp"><span id="nextTemp-5">24</span>°C</span>
           </div>
         </div>
       </div>

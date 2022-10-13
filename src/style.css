@@ -24,6 +24,11 @@ a {
   font-size: 13px;
   font-weight: 900;
   color: #01bfc7;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  color: #ffc107;
 }
 
 .mainPanel {
@@ -72,7 +77,7 @@ a {
 .next-days {
   text-align: center;
   position: relative;
-  bottom: 10px;
+  bottom: -10px;
   margin-top: 30px;
   padding: 10px;
 }
@@ -82,6 +87,13 @@ a {
   font-weight: 900;
   line-height: 30px;
   color: white;
+  position: relative;
+  bottom: 20px;
+}
+
+.next-day-icon {
+  position: relative;
+  bottom: 10px;
 }
 
 .main-info {
@@ -100,6 +112,14 @@ a {
   border: 1px solid white;
 }
 
+.btn-outline-warning {
+  /*--bs-btn-hover-bg: #ec6e4c;
+  --bs-btn-hover-border-color: #ec6e4c;*/
+  --bs-btn-hover-bg: #ffc107;
+  --bs-btn-hover-border-color: #ffc107;
+}
+
+/*btn-outline-success*/
 .current-city,
 .current-date-time {
   margin-top: 30px;
@@ -125,11 +145,13 @@ a {
 .tempUnit {
   font-weight: 500;
   color: black;
+  font-size: 16px;
 }
 
 .currTempUnit {
-  color: black;
+  color: white;
   font-weight: 900;
+  font-size: 16px;
 }
 
 .tempUnit:hover {
