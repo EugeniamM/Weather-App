@@ -81,14 +81,21 @@ a:hover {
   margin-top: 30px;
   padding: 10px;
 }
-.next-temp {
+.next-temp,
+.next-temp-max,
+.next-temp-min {
   font-family: "Dosis", sans-serif;
   font-size: 24px;
   font-weight: 900;
-  line-height: 30px;
+  line-height: 24px;
   color: white;
   position: relative;
   bottom: 20px;
+}
+.next-temp-min {
+  font-size: 20px;
+  opacity: 70%;
+  color: black;
 }
 
 .next-day-icon {

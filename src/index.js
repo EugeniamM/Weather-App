@@ -54,9 +54,14 @@ function showForecastInfo(response) {
         `http://openweathermap.org/img/wn/${response.data.daily[i].weather[0].icon}@2x.png`
       );
 
-    document.querySelector(`#nextTemp-${i}`).innerHTML = Math.round(
-      response.data.daily[i].temp.day
+    document.querySelector(`#nextTempMax-${i}`).innerHTML = Math.round(
+      response.data.daily[i].temp.max
     );
+    document.querySelector(`#nextTempMin-${i}`).innerHTML = Math.round(
+      response.data.daily[i].temp.min
+    );
+    //        <span class="next-temp-max"><span id="nextTempMax-1">24</span>°C</span><br />
+    //     <span class="next-temp-min"><span id="nextTempMin-1">20</span>°C</span>
   }
 }
 function showForecastError() {
@@ -186,7 +191,10 @@ function setCurrentF(event) {
 
     let temp;
     for (i = 1; i < 6; i++) {
-      temp = document.querySelector(`#nextTemp-${i}`);
+      temp = document.querySelector(`#nextTempMax-${i}`);
+      temp.innerHTML = Math.round((temp.innerHTML * 9) / 5 + 32);
+
+      temp = document.querySelector(`#nextTempMin-${i}`);
       temp.innerHTML = Math.round((temp.innerHTML * 9) / 5 + 32);
     }
   }
@@ -211,7 +219,10 @@ function setCurrentC(event) {
 
     let temp;
     for (i = 1; i < 6; i++) {
-      temp = document.querySelector(`#nextTemp-${i}`);
+      temp = document.querySelector(`#nextTempMax-${i}`);
+      temp.innerHTML = Math.round(((temp.innerHTML - 32) * 5) / 9);
+
+      temp = document.querySelector(`#nextTempMin-${i}`);
       temp.innerHTML = Math.round(((temp.innerHTML - 32) * 5) / 9);
     }
   }
