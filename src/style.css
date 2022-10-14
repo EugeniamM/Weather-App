@@ -28,7 +28,7 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  color: #ffc107;
+  color: #ec6e4c;
 }
 
 .mainPanel {
@@ -120,10 +120,10 @@ a:hover {
 }
 
 .btn-outline-warning {
-  /*--bs-btn-hover-bg: #ec6e4c;
-  --bs-btn-hover-border-color: #ec6e4c;*/
-  --bs-btn-hover-bg: #ffc107;
-  --bs-btn-hover-border-color: #ffc107;
+  --bs-btn-hover-bg: #ec6e4c;
+  --bs-btn-hover-border-color: #ec6e4c;
+  /*--bs-btn-hover-bg: #ffc107;
+  --bs-btn-hover-border-color: #ffc107;*/
 }
 
 /*btn-outline-success*/

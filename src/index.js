@@ -73,8 +73,6 @@ function showForecastInfo(response) {
     document.querySelector(`#nextTempMin-${i}`).innerHTML = Math.round(
       response.data.daily[i].temp.min
     );
-    //        <span class="next-temp-max"><span id="nextTempMax-1">24</span>°C</span><br />
-    //     <span class="next-temp-min"><span id="nextTempMin-1">20</span>°C</span>
   }
 }
 function showForecastError() {
