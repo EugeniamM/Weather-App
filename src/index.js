@@ -20,7 +20,20 @@ const months = [
   "November",
   "December",
 ];
-
+const shortMonths = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 // current date and time from Data();
 function getDateTime(dataInfo) {
   let currHours = dataInfo.getHours();
@@ -44,7 +57,7 @@ function showForecastInfo(response) {
   for (i = 1; i < 6; i++) {
     currDate = new Date(response.data.daily[i].dt * 1000);
     document.querySelector(`#nextDate-${i}`).innerHTML = `${currDate.getDate()} ${
-      months[currDate.getMonth()]
+      shortMonths[currDate.getMonth()]
     }`;
 
     document
@@ -232,3 +245,26 @@ document.querySelector("#celsius").addEventListener("click", setCurrentC);
 ///end
 
 getInfoByName("Odesa");
+/*
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ["", "temp"],
+    ["1", 1000 ],
+    ["2", 1170],
+    ["3", 660],
+    ["4", 1030,],
+  ]);
+
+  var options = {
+    title: "Company Performance",
+    curveType: "function",
+    legend: { position: "bottom" },
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById("curve_chart"));
+
+  chart.draw(data, options);
+}*/
