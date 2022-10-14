@@ -54,7 +54,7 @@ function getDateTime(dataInfo) {
 function showForecastInfo(response) {
   let currDate = new Date(response.data.current.dt * 1000);
 
-  for (i = 1; i < 6; i++) {
+  for (i = 0; i < 5; i++) {
     currDate = new Date(response.data.daily[i].dt * 1000);
     document.querySelector(`#nextDate-${i}`).innerHTML = `${currDate.getDate()} ${
       shortMonths[currDate.getMonth()]
@@ -106,6 +106,8 @@ function showCityInfo(response) {
     response.data.weather[0].description.charAt(0).toUpperCase() +
     response.data.weather[0].description.slice(1);
   document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.feels_like);
+  document.querySelector("#min-temp").innerHTML = Math.round(response.data.main.temp_min);
+  document.querySelector("#max-temp").innerHTML = Math.round(response.data.main.temp_max);
 
   let unitName = "metric";
   if (currentMetric === "F") {
@@ -124,9 +126,7 @@ function showCityError() {
 function getInfoByName(city) {
   let unitName = "metric";
 
-  ///Celsius or Fahrenheit?
-  let currTempUnit = document.querySelector("#sel-tempUnit");
-  if (currTempUnit.innerHTML === "F") {
+  if (currentMetric === "F") {
     unitName = "imperial";
   }
   //
@@ -147,11 +147,12 @@ function searchCityInfoHandler(event) {
   event.preventDefault();
   let currentCity = document.querySelector("#inputCity");
   getInfoByName(currentCity.value.trim());
+
+  document.querySelector("#inputCity").value = "";
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchCityInfoHandler);
-//getCurrentCityInfo;
 
 ///Info for current city
 function getInfoByPosition(position) {
@@ -187,8 +188,10 @@ function setCurrentF(event) {
   event.preventDefault();
 
   if (currentMetric !== "F") {
-    document.querySelector("#sel-tempUnit").innerHTML = "F";
+    //document.querySelector("#sel-tempUnit").innerHTML = "F";
     document.querySelector("#feels-like-unit").innerHTML = "F";
+    document.querySelector("#min-temp-unit").innerHTML = "F";
+    document.querySelector("#max-temp-unit").innerHTML = "F";
     currentMetric = "F";
 
     let currentTemp = document.querySelector("#sel-temp");
@@ -197,11 +200,17 @@ function setCurrentF(event) {
     let feelsLikeTemp = document.querySelector("#feels-like");
     feelsLikeTemp.innerHTML = Math.round((feelsLikeTemp.innerHTML * 9) / 5 + 32);
 
+    let minTemp = document.querySelector("#min-temp");
+    minTemp.innerHTML = Math.round((minTemp.innerHTML * 9) / 5 + 32);
+
+    let maxTemp = document.querySelector("#max-temp");
+    maxTemp.innerHTML = Math.round((maxTemp.innerHTML * 9) / 5 + 32);
+
     document.querySelector("#celsius").className = "tempUnit";
     document.querySelector("#fahrenheit").className = "currTempUnit";
 
     let temp;
-    for (i = 1; i < 6; i++) {
+    for (i = 0; i < 5; i++) {
       temp = document.querySelector(`#nextTempMax-${i}`);
       temp.innerHTML = Math.round((temp.innerHTML * 9) / 5 + 32);
 
@@ -215,8 +224,11 @@ function setCurrentC(event) {
   event.preventDefault();
 
   if (currentMetric !== "C") {
-    document.querySelector("#sel-tempUnit").innerHTML = "C";
+    //document.querySelector("#sel-tempUnit").innerHTML = "C";
     document.querySelector("#feels-like-unit").innerHTML = "C";
+    document.querySelector("#min-temp-unit").innerHTML = "C";
+    document.querySelector("#max-temp-unit").innerHTML = "C";
+
     currentMetric = "C";
 
     let currentTemp = document.querySelector("#sel-temp");
@@ -225,11 +237,17 @@ function setCurrentC(event) {
     let feelsLikeTemp = document.querySelector("#feels-like");
     feelsLikeTemp.innerHTML = Math.round(((feelsLikeTemp.innerHTML - 32) * 5) / 9);
 
+    let minTemp = document.querySelector("#min-temp");
+    minTemp.innerHTML = Math.round(((minTemp.innerHTML - 32) * 5) / 9);
+
+    let maxTemp = document.querySelector("#max-temp");
+    maxTemp.innerHTML = Math.round(((maxTemp.innerHTML - 32) * 5) / 9);
+
     document.querySelector("#celsius").className = "currTempUnit";
     document.querySelector("#fahrenheit").className = "tempUnit";
 
     let temp;
-    for (i = 1; i < 6; i++) {
+    for (i = 0; i < 5; i++) {
       temp = document.querySelector(`#nextTempMax-${i}`);
       temp.innerHTML = Math.round(((temp.innerHTML - 32) * 5) / 9);
 

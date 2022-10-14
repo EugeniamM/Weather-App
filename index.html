@@ -54,15 +54,18 @@
       <div class="main-info">
         <span id="sel-date-time">17 October (Saturday) 07:30</span><br />
         <span>
-          Feels like: <span id="feels-like">23</span>°<span id="feels-like-unit">C</span>
+          <b> Feels like:</b> <span id="feels-like">23</span>°<span id="feels-like-unit">C</span>
         </span>
+        <span> <b>Min: </b><span id="min-temp">20</span>°<span id="min-temp-unit">C</span> </span>
+        <span> <b>Max: </b><span id="max-temp">23</span>°<span id="max-temp-unit">C</span> </span>
       </div>
 
       <div class="row">
         <div class="col-8 align-self-center">
           <img id="main-icon" src="http://openweathermap.org/img/wn/01d@2x.png" alt="Clear" />
           <span class="main-temp">
-            <span id="sel-temp">23</span>°<span id="sel-tempUnit">C</span>
+            <span id="sel-temp">23</span>
+            <!--°<span id="sel-tempUnit">C</span>-->
           </span>
           <span class="units">
             <span id="celsius" class="currTempUnit">°C</span>
@@ -87,6 +90,21 @@
       </div>
     -->
       <div class="row">
+        <div class="col next-days">
+          <div>
+            <span id="nextDate-0">18 Sept</span><br />
+            <img
+              id="day-0-icon"
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              width="50px"
+              class="next-day-icon"
+            /><br />
+            <span class="next-temp-max"><span id="nextTempMax-0">24</span>°C</span><br />
+            <span class="next-temp-min"><span id="nextTempMin-0">20</span>°C</span>
+          </div>
+        </div>
+
         <div class="col next-days">
           <div>
             <span id="nextDate-1">18 Sept</span><br />
@@ -143,20 +161,6 @@
             <span class="next-temp-min"><span id="nextTempMin-4">20</span>°C</span>
           </div>
         </div>
-        <div class="col next-days">
-          <div>
-            <span id="nextDate-5">18 Sept</span><br />
-            <img
-              id="day-5-icon"
-              src="http://openweathermap.org/img/wn/01d@2x.png"
-              alt="Clear"
-              width="50px"
-              class="next-day-icon"
-            /><br />
-            <span class="next-temp-max"><span id="nextTempMax-5">24</span>°C</span><br />
-            <span class="next-temp-min"><span id="nextTempMin-5">20</span>°C</span>
-          </div>
-        </div>
       </div>
     </div>
     <script src="src/index.js"></script>
@@ -170,7 +174,7 @@
       <a href="https://github.com/EugeniamM/Weather-App.git" target="_blank">
         Weather app on GitHub</a
       >
-      <span class="">by Ievgeniia Mukhamet</span>
+      <span class="">by Ievgeniia Mukhamet <br /></span>
     </div>
   </body>
 </html>
