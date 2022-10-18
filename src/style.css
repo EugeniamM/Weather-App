@@ -19,7 +19,7 @@ body {
 
   background-attachment: fixed;
   font-family: -main-font;
-  color: --main-color;
+  color: var(--main-color);
   font-size: 13px;
   font-weight: 400;
 
@@ -31,12 +31,12 @@ a {
   text-align: center;
   font-size: 13px;
   font-weight: 900;
-  color: --link-color;
+  color: var(--link-color);
   text-decoration: none;
 }
 a:hover {
   text-decoration: underline;
-  color: --accent-color;
+  color: var(--accent-color);
 }
 
 .mainPanel {
@@ -58,7 +58,7 @@ a:hover {
   vertical-align: middle;
   text-align: left;
 
-  font-family: --accent-font;
+  font-family: var(--accent-font);
   font-size: 48px;
   font-weight: 900;
 
@@ -70,11 +70,11 @@ a:hover {
   padding: 0 0 0 13px;
 }
 .main-temp {
-  color: --accent-color;
+  color: var(--accent-color);
 }
 .main-info,
 .next-days {
-  color: --main-color;
+  color: var(--main-color);
   font-size: 13px;
   font-weight: 400;
   line-height: 18px;
@@ -93,7 +93,7 @@ a:hover {
 
 .next-temp-max,
 .next-temp-min {
-  font-family: -accent-font;
+  font-family: var(--accent-font);
   font-size: 24px;
   font-weight: 900;
   line-height: 24px;
@@ -104,7 +104,7 @@ a:hover {
 .next-temp-min {
   font-size: 20px;
   opacity: 70%;
-  color: --main-color;
+  color: var(--main-color);
 }
 
 .next-day-icon {
@@ -129,10 +129,10 @@ a:hover {
 }
 
 .btn-outline-warning {
-  --bs-btn-hover-bg: --accent-color;
-  --bs-btn-hover-border-color: --accent-color;
-  /*--bs-btn-hover-bg: #ffc107;
-  --bs-btn-hover-border-color: #ffc107;*/
+  --bs-btn-hover-bg: var(--accent-color);
+  --bs-btn-hover-border-color: var(--accent-color);
+  /*var(--bs-btn-hover-bg: #ffc107;
+  var(--bs-btn-hover-border-color: #ffc107;*/
 }
 
 /*btn-outline-success*/
@@ -147,7 +147,7 @@ a:hover {
 
 .current-date-time {
   text-align: right;
-  color: rgb(0, 0, 0);
+  color: var(--main-color);
 }
 .current-city:hover {
   text-decoration: underline;
@@ -160,12 +160,12 @@ a:hover {
 
 .tempUnit {
   font-weight: 500;
-  color: --main-color;
+  color: var(--main-color);
   font-size: 16px;
 }
 
 .currTempUnit {
-  color: --accent-color;
+  color: var(--accent-color);
   font-weight: 900;
   font-size: 16px;
 }
